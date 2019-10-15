@@ -4,10 +4,10 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import {Request, Response} from "express";
 import {Routes} from "./routes";
-import {User} from "./entity/User";
 import cors = require("cors");
 import helmet = require("helmet");
-import exphbs  = require('express-handlebars');
+import hbs  = require('express-handlebars');
+import { join } from "path";
 
 
 createConnection().then(async connection => {
@@ -22,9 +22,13 @@ createConnection().then(async connection => {
     app.use(bodyParser.json());
 
     // Register '.mustache' extension with The Mustache Express
-    // app.engine('mustache', mustacheExpress());
-    app.engine('handlebars', exphbs());
-    app.set('view engine', 'handlebars');
+    app.set('view engine', 'hbs');
+    app.engine( 'hbs', hbs( {
+        extname: 'hbs',
+        defaultView: 'default',
+        layoutsDir:join( __dirname, '..', '/views/'),
+        partialsDir: join(__dirname , '..', '/views/partials/')
+      }));
     
 
 

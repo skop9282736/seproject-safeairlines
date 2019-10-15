@@ -7,7 +7,7 @@ export class UserController {
     private userRepository = getRepository(User);
 
     async all(request: Request, response: Response, next: NextFunction) {
-        return response.render('index')
+        response.render('index', {layout: 'layouts/main'});
     }
 
     async one(request: Request, response: Response, next: NextFunction) {
