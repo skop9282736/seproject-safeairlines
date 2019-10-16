@@ -8,6 +8,7 @@ import cors = require("cors");
 import helmet = require("helmet");
 import hbs  = require('express-handlebars');
 import { join } from "path";
+import path = require('path');
 
 
 createConnection().then(async connection => {
@@ -20,6 +21,11 @@ createConnection().then(async connection => {
     app.use(cors());
     app.use(helmet());
     app.use(bodyParser.json());
+
+    // static files
+    // app.use('/static', express.static(join(__dirname, '..', 'public')))
+    app.use(express.static(path.join(__dirname, '..', '/publisac')));
+    // app.use(express.static('public'));
 
     // Register '.mustache' extension with The Mustache Express
     app.set('view engine', 'hbs');

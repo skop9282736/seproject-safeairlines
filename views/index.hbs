@@ -1,1 +1,33 @@
-<h1>Example App: Home</h1>
+<div class="jumbotron mt-4">
+  <h1 class="display-4">SafeAirlines</h1>
+  <p class="lead">Safest way to travel and get to your destination in one piece.</p>
+  <hr class="my-4">
+  <p>Search for your next cheap flight.</p>
+  <form action="get">
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="from">
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="to">
+        </div>
+        <div class="col">
+            <input type="date" class="form-control" placeholder="Depart on">
+        </div>
+        <div class="col">
+            <select name="seats" id="seats"  class="form-control">
+                <option value="0" disabled selected>seats</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mt-1 text-center">
+        <div class="col center-block">
+            <button type="submit" class="btn btn-info ">Search flights</button>
+        </div>
+    </div>
+  </form>
+</div>
